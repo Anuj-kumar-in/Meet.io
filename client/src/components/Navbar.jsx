@@ -28,13 +28,13 @@ export default function Navbar() {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
-                    <Link to="/" className="flex items-center gap-2 group">
-                        <div
-                            className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm transition-transform group-hover:scale-110"
-                            style={{ backgroundColor: "var(--accent)", color: "var(--accent-text)" }}
-                        >
-                            M
-                        </div>
+                    <Link to="/" className="flex items-center gap-3 group">
+                        <img
+                            src={isDark ? "/dark.png" : "/light.png"}
+                            alt="Meet.io"
+                            className="w-8 h-8 rounded-lg object-cover"
+                            style={{ backgroundColor: "transparent" }}
+                        />
                         <span className="text-lg font-bold tracking-tight" style={{ color: "var(--text-primary)" }}>
                             Meet.io
                         </span>

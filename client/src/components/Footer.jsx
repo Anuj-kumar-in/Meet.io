@@ -1,19 +1,24 @@
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 export default function Footer() {
+    const { isDark } = useTheme();
+
     return (
         <footer style={{ borderTop: "1px solid var(--border-color)", backgroundColor: "var(--bg-secondary)" }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="md:col-span-2">
                         <div className="flex items-center gap-2 mb-4">
-                            <div
-                                className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm"
-                                style={{ backgroundColor: "var(--accent)", color: "var(--accent-text)" }}
-                            >
-                                M
-                            </div>
-                            <span className="text-lg font-bold tracking-tight">Meet.io</span>
+                            <img
+                                src={isDark ? "/dark.png" : "/light.png"}
+                                alt="Meet.io"
+                                className="w-8 h-8 rounded-lg object-cover"
+                                style={{ backgroundColor: "transparent" }}
+                            />
+                            <span className="text-lg font-bold tracking-tight" style={{ color: "var(--text-primary)" }}>
+                                Meet.io
+                            </span>
                         </div>
                         <p className="text-sm leading-relaxed max-w-sm" style={{ color: "var(--text-muted)" }}>
                             Connect with world-class experts for personalized sessions. Real-time booking, instant confirmation.

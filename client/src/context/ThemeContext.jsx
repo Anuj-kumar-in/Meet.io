@@ -11,6 +11,14 @@ export function ThemeProvider({ children }) {
     useEffect(() => {
         document.documentElement.classList.toggle("dark", isDark);
         localStorage.setItem("meetio-theme", isDark ? "dark" : "light");
+        try {
+            const link = document.querySelector('link[rel="icon"]');
+            if (link) {
+                link.href = isDark ? "/dark.png" : "/light.png";
+            }
+        } catch (e) {
+            // ignore in non-browser environments
+        }
     }, [isDark]);
 
     const toggleTheme = () => setIsDark((prev) => !prev);
